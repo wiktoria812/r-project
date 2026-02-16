@@ -3,7 +3,7 @@ Ethereum <- read.csv("coin_Ethereum.csv")
 Ethereum$Date <- as.Date(Ethereum$Date)
 
 
-# wywalam ceny max, min i open, będę operował tylko na cenach zamknięcia w każdy dzień
+# wyrzucam ceny max, min i open, będę operowała tylko na cenach zamknięcia w każdy dzień
 Ethereum$High <- NULL
 Ethereum$Low  <- NULL
 Ethereum$Open <- NULL
@@ -15,7 +15,7 @@ Ethereum$returns <-
 
 
 
-##### Buy and Hold (BH) ##### (rebalancing na koniec miesiąca nie ma znaczenia w tym przypadku)
+##### Buy and Hold (BH) #####
 
 #wartosc NA zmieniona na 0, żeby zrobić krzywą kapitału
 Ethereum$returns[1] <- 0
@@ -59,10 +59,10 @@ annual_returns_BH <- annual_returns_BH %>%
 annual_returns_BH$annual_return[1] <- NA
 
 # średnia stopa zwrotu z całego okresu (wart początkowa = 1)
-# a) arytmetyczna 15,35 (1535 % WHAAAT)
+# a) arytmetyczna 
 mean(annual_returns_BH$annual_return)
 
-# b) geometryczna 2,68 (bardziej  uwględnia duże wahania)
+# b) geometryczna 
 round((tail(annual_returns_BH$end_capital, 1) / head(annual_returns_BH$end_capital, 1))^(1 / (nrow(annual_returns_BH) - 1)) - 1, 4)
 
 #Zmienność	roczna.: 1,21 (roczna zmienność stóp zwrotu wynosi 121%)
@@ -171,10 +171,10 @@ annual_returns_M12 <- annual_returns_M12 %>%
 annual_returns_M12$annual_return[1] <- NA
 
 # średnia stopa zwrotu z całego okresu (wart początkowa = 1)
-# a) arytmetyczna 16.78 (1678 % btw)
+# a) arytmetyczna 
 round(mean(annual_returns_M12$annual_return, na.rm = TRUE),2)
 
-# b) geometryczna 2,67 (bardziej  uwględnia duże wahania)
+# b) geometryczna 
 round((tail(annual_returns_M12$end_capital, 1) 
        / head(annual_returns_M12$end_capital, 1))^(1 / (nrow(annual_returns_M12) - 1)) - 1, 2)
 
@@ -732,3 +732,4 @@ ggplot(returns_long,
     y = "Dzienny zwrot"
   ) +
   theme_minimal()
+
