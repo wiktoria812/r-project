@@ -24,7 +24,7 @@ returns <- returns[1:n_common, ]
 prices$SUMA <- rowSums(prices, na.rm = TRUE)
 
 index_SP500 <- data.frame(
-  Date  = as.Date(returns$Date),  # TERAZ bedą zsynchronizowane
+  Date  = as.Date(returns$Date), 
   Price = prices$SUMA
 )
 
@@ -32,8 +32,8 @@ index_SP500 <- data.frame(
 index_SP500$returns_prc <- c(0, diff(index_SP500$Price) / head(index_SP500$Price, -1))
 
 # sprawdzam
-any(is.na(index_SP500$Date))   # musi być FALSE   i jest FALSE 
-nrow(index_SP500)              # ta sama liczba wierszy co prices i returns
+any(is.na(index_SP500$Date))   
+nrow(index_SP500)              
 head(index_SP500)
 
 
@@ -129,9 +129,9 @@ for (t in (start_idx+1):nrow(index_SP500)) {
 
 
 #średnia miesięczna stopa zwrotu
-# a) arytmetyczna:-> mi wyszło 0.9874133
+# a) arytmetyczna->  0.9874133
 mean(index_SP500$momentum_return, na.rm = TRUE)*100
-#b) geometryczna-> mi wyszło annual 0.1106315
+#b) geometryczna-> annual 0.1106315
 valid_returns <- index_SP500$momentum_return[!is.na(index_SP500$momentum_return)]
 geom_mean_monthly <- exp(mean(log(1 + valid_returns))) - 1  # miesięczna
 geom_mean_annual <- (1 + geom_mean_monthly)^12 - 1  # roczna
@@ -689,4 +689,5 @@ ggplot(comparison_long,
       "MA" = "SMA",
       "MiniRiskParity" = "MRP"
     )
+
   )
