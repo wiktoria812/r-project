@@ -6,7 +6,7 @@ Projekt został zrealizowany w ramach ćwiczeń z przedmiotu Podstawy programowa
 * S&P 500 (reprezentującym tradycyjny rynek akcji),
 * Ethereum (reprezentującym dynamiczny rynek kryptowalut).
 
-Analiza miała na celu sprawdzenie, czy proste strategie techniczne (np. przecięcia średnich) pozwalają na osiągnięcie lepszych wyników niż pasywne podejście Buy & Hold.
+Analiza miała na celu sprawdzenie jak różne strategie inwestycyjne radzą sobie w zależności od charakterystyki rynku, tradycyjnego oraz wysokozmiennego.
 
 ### Struktura i opis kodu
 
